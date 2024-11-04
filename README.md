@@ -46,13 +46,22 @@ windows
 
 ## krótki wstęp do git
 
-git init
-git remote add origin <twoj adres repo zdalnego>
-
-git status
-git add <konkretny plik>
-git add .
-
-git commit
-
-git commit -m "<git message>"
+```
+   git init
+   git remote add origin <twoj adres repo zdalnego>
+   
+   git status
+   git add <konkretny plik>
+   git add .
+   
+   git commit
+   git commit -m "<git message>"
+   git commit -a --amend  # dodaje do poprzedniego comita
+   
+   git diff
+   git log
+   git push <origin> <nazwa brancha>
+   
+   git pull
+   git pull <origin> <nazwa brancha>
+```
