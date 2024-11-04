@@ -65,3 +65,27 @@ windows
    git pull
    git pull <origin> <nazwa brancha>
 ```
+
+
+## Podstawy pythona
+
+### zmienne
+
+nazwa = <wartosc>
+
+Można używać liter, cyfr, i znaków podkreślenia
+Nie można zaczynać od cyfry
+
+źle:
+1_osoba = "Rafał"
+
+dobrze:
+osoba_1 = "Rafał"
+
+imie_osoby_1
+
+
+
+### Typy wbudowane w pythona
+
+01 - napisy
