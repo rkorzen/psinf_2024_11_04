@@ -49,4 +49,10 @@ windows
 git init
 git remote add origin <twoj adres repo zdalnego>
 
+git status
+git add <konkretny plik>
+git add .
 
+git commit
+
+git commit -m "<git message>"
