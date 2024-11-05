@@ -47,3 +47,14 @@ while i < len(lista):
 
 for el in lista:
     print(el)
+
+
+## else
+
+
+for el in lista:
+    print(el)
+    if el == 3:
+         break
+else:
+    print("Skonczylem")
