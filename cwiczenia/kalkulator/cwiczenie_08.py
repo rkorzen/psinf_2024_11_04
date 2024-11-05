@@ -4,6 +4,8 @@
     "napis 1",
     "napis 2",
 )
+
+wynik:
 "napis 1\nnapis 2
 
 >> formatuj(
@@ -13,6 +15,7 @@
     vat=20.22
 )
 
+wynik:
 "cena produkty to 123.25\nstawka vat to 20.22",
 
 
