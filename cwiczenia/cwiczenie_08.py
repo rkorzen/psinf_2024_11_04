@@ -11,7 +11,7 @@ wynik:
 >> formatuj(
     "cena produktu to $cena",
     "stawka vat to $vat",
-    cena=123.25
+    cena=123.25,
     vat=20.22
 )
 
