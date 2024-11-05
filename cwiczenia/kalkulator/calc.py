@@ -9,24 +9,39 @@ Wynik: 200
 
 """
 
-def add(a, b):
+def add(a, b, *args):
     """Dodaje dwie liczby"""
-    return a + b
+    return a + b + sum(args)
 
 
-def sub(a, b):
+def sub(a, b, *args):
     """Odejmuje b od a"""
-    return a - b
+
+    r = a - b
+    for i in args:
+        r -= i
+
+    return r
 
 
-def mul(a, b):
+def mul(a, b, *args):
     """Mnoży a i b"""
-    return a * b
+    r = a * b
+
+    for i in args:
+        r *= i
+
+    return r
 
 
-def div(a, b):
+def div(a, b, *args):
     """Dzieli a przez b"""
-    return a / b
+    r = a / b
+
+    for i in args:
+        r /= i
+
+    return r
 
 
 def get_a():
@@ -38,7 +53,13 @@ def get_data():
     op = input("Podaj operację jaka chcesz wykonać (+-/*): ")
     a = int(input("Podaj arg a: "))
     b = int(input("Podaj arg b: "))
-    return op, a, b
+    pozostale = []
+    while True:
+        i = input("Podaj kolejną liczbę lub naciśnij enter by zakończyć: ")
+        if not i: # not ""
+            break
+        pozostale.append(int(i))
+    return op, a, b, pozostale
 
 operations = {
     "+": add,
@@ -53,7 +74,7 @@ def main():
     # a = dane[1]
     # b = dane[2]
 
-    op, a, b = get_data()
+    op, a, b, pozostale = get_data()
 
     # if op == "+":
     #     result = add(a, b)
@@ -63,7 +84,7 @@ def main():
 
     # func = operations[op]
     # result = func(a, b)
-    result = operations[op](a, b)
+    result = operations[op](a, b, *pozostale) # (1, 2, [1,2 ,3]) => (1, 2, 1, 2, 3)
     print("Wynik:", result)
 
 
