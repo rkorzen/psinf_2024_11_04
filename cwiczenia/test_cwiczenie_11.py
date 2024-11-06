@@ -23,7 +23,6 @@ def test_basket_add_the_same_product_many_times():
     assert basket.generate_report() == expected
 
 
-
 def test_basket_add_the_same_product_many_times_product_defined_twice():
     basket = Basket()
     product1 = Product(1, 'Woda', 10.00)

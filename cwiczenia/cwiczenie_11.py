@@ -19,6 +19,7 @@ Produkty w koszyku:
 - Cola (2), cena: 20.00 x 10
 W sumie: 250.00
 """
+from itertools import product
 
 
 class Basket:
@@ -74,3 +75,8 @@ class BasketEntry:
         return f"- {self.product.name} ({self.product.id}), cena: {self.product.price:.2f} x {self.count}\n"
 
 
+
+# help(Product)
+
+print(object)
+print(dir(object))
