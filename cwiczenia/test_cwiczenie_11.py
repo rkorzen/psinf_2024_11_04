@@ -19,5 +19,17 @@ def test_basket_add_the_same_product_many_times():
     basket.add_product(product, 5)
     basket.add_product(product, 5)
     assert basket.count_total_price() == 100
-    expected = 'Produkty w koszyku:\n- Woda (1), cena: 10.00 x 10\nW sumie: 250.00'
+    expected = 'Produkty w koszyku:\n- Woda (1), cena: 10.00 x 10\nW sumie: 100.00'
+    assert basket.generate_report() == expected
+
+
+
+def test_basket_add_the_same_product_many_times_product_defined_twice():
+    basket = Basket()
+    product1 = Product(1, 'Woda', 10.00)
+    product2 = Product(1, 'Woda', 10.00)
+    basket.add_product(product1, 5)
+    basket.add_product(product2, 5)
+    assert basket.count_total_price() == 100
+    expected = 'Produkty w koszyku:\n- Woda (1), cena: 10.00 x 10\nW sumie: 100.00'
     assert basket.generate_report() == expected

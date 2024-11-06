@@ -30,6 +30,10 @@ class Basket:
             print(basket_entry)
 
     def add_product(self, product: "Product", count: int):
+        for basket_entry in self.basket_entries:
+            if basket_entry.product == product:
+                basket_entry.count += count
+                return
         self.basket_entries.append(BasketEntry(product, count))
 
     def count_total_price(self):
