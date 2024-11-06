@@ -35,4 +35,13 @@ class CashMachine:
         return bool(self._container)
 
     def withdraw_money(self, amount: int) -> list[int]:
-        return self._container
+        bills_to_withdraw = []
+        for bill in sorted(self._container, reverse=True):
+            if sum(bills_to_withdraw) + bill <= amount:
+                bills_to_withdraw.append(bill)
+        if sum(bills_to_withdraw) != amount:
+            return []
+
+        for bill in bills_to_withdraw:
+            self._container.remove(bill)
+        return bills_to_withdraw

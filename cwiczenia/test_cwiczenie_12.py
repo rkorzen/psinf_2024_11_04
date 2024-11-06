@@ -23,3 +23,15 @@ class TestCashMachine(unittest.TestCase):
         cm = CashMachine()
         cm.put_money([200])
         self.assertEqual([], cm.withdraw_money(100))
+
+
+    def test_cash_machine_withdraw_money_withdraw_many_bills(self):
+        cm = CashMachine()
+        cm.put_money([200, 100, 50])
+        self.assertEqual([100, 50], cm.withdraw_money(150))
+
+    def test_cash_machine_withdraw_money_withdraw_many_bills_different_order(self):
+        cm = CashMachine()
+        cm.put_money([200, 50, 100])
+        self.assertEqual([100, 50], cm.withdraw_money(150))
+        self.assertEqual([], cm.withdraw_money(150))
