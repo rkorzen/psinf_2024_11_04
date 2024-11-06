@@ -12,6 +12,8 @@ def moj_generator():
 mgen = moj_generator()
 
 
+
+
 # for i in mgen:
 #     print(i)
 
