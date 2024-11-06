@@ -21,6 +21,10 @@ Przykład użycia:
 >>> employee.pay_salary()
 1200.0
 
+>>> employee.register_time(8)
+>>> employee.register_time(10)
+>>> employee.pay_salary()
+2000.0
 """
 
 class Employee:
@@ -34,10 +38,10 @@ class Employee:
 
     def register_time(self, hours):
         if hours > 8:
-            self.worked_hours = 8
-            self.overhours = hours - 8
+            self.worked_hours += 8
+            self.overhours += hours - 8
         else:
-            self.worked_hours = hours
+            self.worked_hours += hours
 
     def pay_salary(self):
         salary = self.worked_hours * self.rate_per_hour + self.overhours * self.rate_per_hour * 2
