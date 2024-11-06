@@ -59,6 +59,8 @@ class Product:
         self.name = name
         self.price = price
 
+    def __eq__(self, other):
+        return self.id == other.id and self.name == other.name and self.price == other.price
 
 class BasketEntry:
     def __init__(self, product: Product, count: int):
