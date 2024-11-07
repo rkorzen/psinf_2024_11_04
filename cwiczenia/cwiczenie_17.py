@@ -12,24 +12,28 @@ Czas przebywania w systemie:
 - user-3: 20 s
 
 """
+
+import csv
 from collections import defaultdict
+from pathlib import Path
+
 
 last_login = {}
 user_total_time = defaultdict(int)
 
 # print(user_total_time["Rafał"])
 
-
-with open("../data/logi.csv") as f:
-
-    for line in f:
-        nick, action, t = line.strip().split(";")
+path = Path(r"..\data\logi.csv")
+print(path)
+with open(path) as f:
+    reader = csv.reader(f, delimiter=';')
+    for nick, action, t  in reader:
         t = int(t)
         if action == "LOGIN":
             last_login[nick] = t
 
         elif action == "LOGOUT":
-            user_total_time[nick] += + t - last_login[nick]
+            user_total_time[nick] += t - last_login[nick]
 
 print("Czas przebywania w systemie:")
 
