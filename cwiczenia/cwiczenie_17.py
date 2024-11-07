@@ -12,9 +12,14 @@ Czas przebywania w systemie:
 - user-3: 20 s
 
 """
+from collections import defaultdict
 
 last_login = {}
-user_total_time = {}
+user_total_time = defaultdict(int)
+
+print(user_total_time["Rafał"])
+
+
 with open("../data/logi.csv") as f:
 
     for line in f:
@@ -24,7 +29,7 @@ with open("../data/logi.csv") as f:
             last_login[nick] = t
 
         elif action == "LOGOUT":
-            user_total_time[nick] = user_total_time.get(nick, 0) + t - last_login[nick]
+            user_total_time[nick] += + t - last_login[nick]
 
 print(user_total_time)
 
