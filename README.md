@@ -415,3 +415,8 @@ for i in range(3):
 | Zakończenie pętli   | Po zakończeniu sekwencji       | Kiedy warunek staje się fałszywy |
 
 Pętle i wyrażenia warunkowe są podstawowymi elementami języka Python, które umożliwiają kontrolę przepływu programu. Dzięki nim możliwe jest tworzenie złożonych i elastycznych aplikacji.
+
+## materialy dodatkowe:
+
+https://github.com/rkorzen/materialy_dodatkowe/tree/master
+
