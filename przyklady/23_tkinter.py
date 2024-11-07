@@ -5,7 +5,6 @@ def dodaj():
     b_value = b.get()
     wynik_label.config(text=int(a_value) + int(b_value))
 
-
 root = tkinter.Tk()
 
 a_label = tkinter.Label(root, text="a")
@@ -28,6 +27,6 @@ wynik_label.pack()
 
 root.mainloop()
 
-
-
 print("print po")
+
+# sudo apt-get install python3-tk
