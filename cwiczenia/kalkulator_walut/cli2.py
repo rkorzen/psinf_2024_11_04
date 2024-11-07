@@ -1,10 +1,20 @@
-import sys
-from kalkulator import exchange
+import argparse
 
-if len(sys.argv) < 3:
-    print("Usage: cli2.py <code> <amount>")
+from kalkulator import exchange, get_codes
 
-code = sys.argv[1]
-amount = sys.argv[2]
 
-print(exchange(code, float(amount)))
+def main():
+
+    parser = argparse.ArgumentParser(description='Kalkulator walut')
+    parser.add_argument('code', choices=get_codes(), help="Kod waluty")
+    parser.add_argument("amount", type=float, help="ile chcesz kupic")
+
+    args = parser.parse_args()
+
+    code = args.code
+    amount = args.amount
+
+    print(exchange(code, float(amount)))
+
+if __name__ == '__main__':
+    main()
