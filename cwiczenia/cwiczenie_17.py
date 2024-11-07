@@ -13,6 +13,20 @@ Czas przebywania w systemie:
 
 """
 
-
+last_login = {}
+user_total_time = {}
 with open("../data/logi.csv") as f:
-    print(f.read()[:10])
+
+    for line in f:
+        nick, action, t = line.strip().split(";")
+        t = int(t)
+        if action == "LOGIN":
+            last_login[nick] = t
+
+        elif action == "LOGOUT":
+            user_total_time[nick] = user_total_time.get(nick, 0) + t - last_login[nick]
+
+print(user_total_time)
+
+
+
