@@ -26,3 +26,28 @@ C
 
 from pprint import pprint
 pprint(dir(str))
+
+import requests
+import json
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    id: int
+    name: str
+    email: str
+
+# Przykładowy URL API
+url = "https://jsonplaceholder.typicode.com/users/1"
+
+# Wysłanie zapytania do API i pobranie danych JSON
+response = requests.get(url)
+data = response.json()
+filtered_data = {key: data[key] for key in User.__annotations__.keys() if key in data}
+
+print(data)
+
+# Konwersja słownika JSON na obiekt klasy User
+user = User(**filtered_data)
+
+print(user)
