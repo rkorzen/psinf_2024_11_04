@@ -23,3 +23,36 @@ Pracownicy:
 - [1] Jan Nowak - rok: 1980, pensja: 5000.00 PLN
 
 """
+import json
+
+try:
+    with open('employees.json') as f:
+        dane = json.load(f)
+except FileNotFoundError:
+    dane = []
+
+
+action = input("Co chcesz zrobić? [d - dodaj, w - wypisz]: ")
+
+if action == "d":
+
+    first_name = input("Imie: ")
+    last_name = input("Nazwisko: ")
+    b_year = int(input("Rok urodzenia: "))
+    salary = float(input("Pensja: "))
+
+    employee = {
+        "first_name": first_name,
+        "last_name": last_name,
+        "b_year": b_year,
+        "salary": salary
+    }
+
+    dane.append(employee)
+    with open("employees.json", "w") as file:
+        json.dump(dane, file)
+
+elif action == "w":
+    print("Pracownicy: ")
+    for i, employee in enumerate(dane, start=1):
+        print(f"- [{i}] {employee['first_name']} {employee['last_name']} - rok: {employee['b_year']}, pensja: {employee['salary']:.2f} PLN")
