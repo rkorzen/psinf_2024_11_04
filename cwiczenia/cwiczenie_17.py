@@ -17,7 +17,7 @@ from collections import defaultdict
 last_login = {}
 user_total_time = defaultdict(int)
 
-print(user_total_time["Rafał"])
+# print(user_total_time["Rafał"])
 
 
 with open("../data/logi.csv") as f:
@@ -31,7 +31,12 @@ with open("../data/logi.csv") as f:
         elif action == "LOGOUT":
             user_total_time[nick] += + t - last_login[nick]
 
-print(user_total_time)
+print("Czas przebywania w systemie:")
 
+# print(user_total_time)
+# print(user_total_time.keys())
+# print(user_total_time.items())
+for nick, total_time in sorted(user_total_time.items(), key=lambda x: x[1], reverse=True):
+    print(f"- {nick:10}: {total_time} s")
 
 
